@@ -1,5 +1,6 @@
 import ListItem from '../components/ListItem'
 import Buttons from '../components/Buttons'
+import InitStore from '../components/InitStore'
 
 async function getData() {
   const res = await fetch('https://api.github.com/repos/jrainlau/blog-articles/issues', {
@@ -17,9 +18,9 @@ async function getData() {
 export default async function Home() {
   const { status, articles } = await getData()
 
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="">
+      <InitStore count={status} />
       <p>Status: {status}</p>
       <p>token: {process.env.PERSONAL_GITHUB_ACCESS_TOKEN?.substring(0, 8)}</p>
       <Buttons />

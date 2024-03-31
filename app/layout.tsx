@@ -1,8 +1,5 @@
-import { Inter } from 'next/font/google'
 import './globals.css'
 import StoreProvider from './StoreProvider'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Jrainlau | Blog',
@@ -16,8 +13,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <StoreProvider count={0}>{children}</StoreProvider>
+      <body className='h-screen w-screen overflow-hidden flex'>
+        <StoreProvider count={0}>
+          <aside className='w-[260px] h-screen overflow-hidden box-border p-4 bg-blue-100'>
+            <div>
+              <img className='inline-block w-[55px] h-[55px] rounded-full' src="https://fakeimg.pl/80x80" />
+              <p className='mt-3 text-wrap break-words'>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                <a>about me here</a>
+              </p>
+            </div>
+
+          </aside>
+          {children}
+        </StoreProvider>
       </body>
     </html>
   )
