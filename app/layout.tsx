@@ -1,5 +1,12 @@
 import './globals.css'
+import { Inter } from 'next/font/google'
+import Image from "next/legacy/image"
 import StoreProvider from './StoreProvider'
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata = {
   title: 'Jrainlau | Blog',
@@ -13,16 +20,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className='h-screen w-screen overflow-hidden flex'>
+      <body className={`${inter.className} h-screen w-screen overflow-hidden flex`}>
         <StoreProvider count={0}>
-          <aside className='w-[260px] h-screen overflow-hidden box-border p-4 bg-blue-100'>
+          <aside className='flex flex-col justify-between w-[260px] h-screen overflow-hidden box-border p-16'>
             <div>
-              <img className='inline-block w-[55px] h-[55px] rounded-full' src="https://fakeimg.pl/80x80" />
+              <Image className='inline-block rounded-full' src="/vercel.svg" alt="" width={55} height={55} />
               <p className='mt-3 text-wrap break-words'>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                 <a>about me here</a>
               </p>
             </div>
-
+            <div>xxxx</div>
           </aside>
           {children}
         </StoreProvider>

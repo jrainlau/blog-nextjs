@@ -19,11 +19,12 @@ export default async function Home() {
   const { status, articles } = await getData()
 
   return (
-    <main className="">
+    <main className="w-full max-w-[1200px] mx-auto h-screen overflow-y-scroll overflow-x-hidden p-16 no-scrollbar">
+      <h1 className='text-7xl font-bold w-[18rem] mb-16'>Jrain&apos;s 技术博客</h1>
       <InitStore count={status} />
-      <p>Status: {status}</p>
-      <p>token: {process.env.PERSONAL_GITHUB_ACCESS_TOKEN?.substring(0, 8)}</p>
-      <Buttons />
+      {/* <p>Status: {status}</p>
+      <p>token: {process.env.PERSONAL_GITHUB_ACCESS_TOKEN?.substring(0, 8)}</p> */}
+
       <ul>
         {articles.map((item: any) => {
           return <ListItem key={item.id} issue={item} />
