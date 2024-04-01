@@ -1,6 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import StoreProvider from './StoreProvider'
 
 const inter = Inter({
@@ -22,15 +22,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} h-screen w-screen overflow-hidden flex`}>
         <StoreProvider count={0}>
-          <aside className='flex flex-col justify-between w-[260px] h-screen overflow-hidden box-border p-16'>
-            <div>
-              <Image className='inline-block rounded-full' src="/vercel.svg" alt="" width={55} height={55} />
-              <p className='mt-3 text-wrap break-words'>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                <a>about me here</a>
-              </p>
-            </div>
-            <div>xxxx</div>
-          </aside>
           {children}
         </StoreProvider>
       </body>

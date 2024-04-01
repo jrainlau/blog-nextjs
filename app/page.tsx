@@ -1,5 +1,4 @@
 import ListItem from '../components/ListItem'
-import Buttons from '../components/Buttons'
 import InitStore from '../components/InitStore'
 
 async function getData() {
