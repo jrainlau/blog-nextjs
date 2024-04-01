@@ -1,6 +1,6 @@
 import './globals.css'
+import 'highlight.js/styles/atom-one-dark.css'
 import { Inter } from 'next/font/google'
-import Image from 'next/legacy/image'
 import StoreProvider from './StoreProvider'
 
 const inter = Inter({
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} h-screen w-screen overflow-hidden flex`}>
-        <StoreProvider count={0}>
+        <StoreProvider>
           {children}
         </StoreProvider>
       </body>

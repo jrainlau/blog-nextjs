@@ -1,12 +1,15 @@
 'use client'
 
-import React from 'react'
-import { initializeCount } from '../lib/features/counter/counterSlice'
+import React, { useEffect } from 'react'
+import { initArticles } from '@/lib/articleSlice'
 import { useDispatch } from 'react-redux'
+import { Article } from '@/lib/articleSlice'
 
-export default function Buttons({ count }) {
+export default function InitStore({ articles }: { articles: Article[] }) {
   const dispatch = useDispatch()
-  dispatch(initializeCount(count))
+  useEffect(() => {
+    dispatch(initArticles(articles))
+  }, [articles, dispatch])
 
   return (
     <></>

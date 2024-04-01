@@ -6,7 +6,7 @@
     "sourceType": "module"
   },
   "plugins": ["@typescript-eslint"],
-  "ignorePatterns": ["node_modules", "dist", "next.config.js"],
+  "ignorePatterns": ["node_modules", "dist", "next.config.js", "assets"],
   "rules": {
     "semi": ["error", "never"],
     "quotes": ["error", "single"]

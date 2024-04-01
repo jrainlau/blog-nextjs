@@ -2,16 +2,18 @@
 
 import { RootState } from '@/lib/store'
 import { useSelector } from 'react-redux'
-import Image from "next/legacy/image"
+import { useRouter } from 'next/navigation'
+import Image from 'next/legacy/image'
 
 export default function ListItem({ issue }: { issue: any}) {
-  const log = () => {
-    console.log('xxxx: ', issue)
-  }
-
-  const count = useSelector((state: RootState) => state.counter.value)
+  // const count = useSelector((state: RootState) => state.counter.value)
+  const router = useRouter()
   const createTime = (new Date(issue.created_at).toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' })).replaceAll(',', '' )
   const coverImage = extractImageFromMarkdown(issue.body)
+
+  function toArticle() {
+    router.push(`/article?id=${issue.id}`)
+  }
 
   function extractImageFromMarkdown(markdownText: string) {
     const regex = /!\[.*?\]\((.*?)\)/
@@ -24,7 +26,7 @@ export default function ListItem({ issue }: { issue: any}) {
   }
 
   return (
-    <li className='mb-8 flex justify-between items-center' onClick={log}>
+    <li className='mb-8 flex justify-between items-center' onClick={toArticle}>
       <div className='mr-32 flex-1'>
         <h1 className='text-3xl font-bold mb-3'>{issue.title}</h1>
         <span className='text-gray-500'>{createTime}</span>
