@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test'
 
 test('test', async ({ page }) => {
-  page.setDefaultTimeout(30000)
   // 测试页面能否正确打开，并展示正确的标题
   await page.goto('/')
   await expect(page.getByRole('heading', { name: '精神时光屋' })).toBeVisible()
