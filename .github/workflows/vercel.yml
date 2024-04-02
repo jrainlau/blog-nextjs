@@ -10,7 +10,9 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install dependencies
         run: npm install -g yarn && yarn && npx playwright install --with-deps
+      - name: Echo url
+        run: echo "${{ github.event.deployment_status.target_url }}"
       - name: Run tests
         run: npx playwright test
         env:
-          BASE_URL: ${{ github.event.deployment_status.environment_url }}
+          BASE_URL: https://jrainlau.vercel.app
