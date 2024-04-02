@@ -41,7 +41,7 @@ export default function Article({ searchParams }: { searchParams: { id: string }
 
   return (
     articleDetail ?
-    <div className='max-w-[960px] w-full mx-auto p-16 markdown no-scrollbar overflow-y-scroll'>
+    <div className='max-w-[960px] w-full mx-auto markdown no-scrollbar overflow-y-scroll p-16 max-lg:p-4'>
       <h1 className='font-bold mb-6'>{articleDetail.title}</h1>
       <div className='text-blue-700 underline'>{ReactHtmlParser(originLink)}</div>
       {ReactHtmlParser(articleContent)}

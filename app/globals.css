@@ -62,6 +62,13 @@ body {
   .markdown p {
     margin: 1rem 0;
   }
+
+  @media not all and (min-width: 1024px) {
+    .markdown h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
 }
 
 @layer components {

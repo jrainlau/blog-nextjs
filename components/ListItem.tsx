@@ -27,12 +27,12 @@ export default function ListItem({ issue }: { issue: any}) {
 
   return (
     <li className='mb-8 flex justify-between items-center'>
-      <div className='mr-32 flex-1'>
-        <h1 className='text-3xl font-bold mb-3' onClick={toArticle}>{issue.title}</h1>
-        <span className='text-gray-500'>{createTime}</span>
+      <div className='flex-1 mr-32 max-lg:mr-4'>
+        <h1 className='font-bold mb-3 text-3xl max-lg:text-lg max-lg:mb-1' onClick={toArticle}>{issue.title}</h1>
+        <span className='text-gray-500 max-lg:text-sm'>{createTime}</span>
       </div>
 
-      <div className='w-[400px] h-[200px] relative'>
+      <div className='w-[400px] h-[200px] relative max-lg:w-[100px] max-lg:h-[75px]'>
         <Image src={coverImage} alt='' layout='fill' objectFit='cover' />
       </div>
     </li>

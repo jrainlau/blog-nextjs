@@ -18,10 +18,10 @@ export default async function Home() {
   const { status, articles } = await getData()
 
   return (
-    <main className="w-full max-w-[1200px] mx-auto h-screen overflow-y-scroll overflow-x-hidden p-16 no-scrollbar">
-      <h1 className='text-7xl font-bold mb-0'>Jrain&apos;s</h1>
-      <h1 className='text-7xl font-bold mb-6'>精神时光屋</h1>
-      <section className='mb-6'>
+    <main className="w-full max-w-[1200px] mx-auto h-screen overflow-y-scroll overflow-x-hidden no-scrollbar p-16 max-lg:p-4">
+      <h1 className='text-7xl max-lg:text-3xl font-bold mb-0'>Jrain&apos;s</h1>
+      <h1 className='text-7xl max-lg:text-3xl font-bold mb-6'>精神时光屋</h1>
+      <section className='mb-6 '>
         <a href="https://github.com/jrainlau" target='__blank' className='icon bg-[url(/github.svg)]'></a>
         <a href="mailto:jrainlau@gmail.com" target='__blank' className='icon bg-[url(/gmail.svg)]'></a>
         <a href="https://www.xiaohongshu.com/user/profile/5cf4ff44000000001200c082" target='__blank' className='icon bg-[url(/xiaohongshu.svg)]'></a>
