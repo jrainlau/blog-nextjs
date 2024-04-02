@@ -4,15 +4,15 @@ import { RootState } from '@/lib/store'
 import { useSelector } from 'react-redux'
 import { useRouter } from 'next/navigation'
 import Image from 'next/legacy/image'
+import { Article } from '@/lib/articleSlice'
 
-export default function ListItem({ issue }: { issue: any}) {
-  // const count = useSelector((state: RootState) => state.counter.value)
+export default function ListItem({ article }: { article: Article}) {
   const router = useRouter()
-  const createTime = (new Date(issue.created_at).toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' })).replaceAll(',', '' )
-  const coverImage = extractImageFromMarkdown(issue.body)
+  const createTime = (new Date(article.created_at).toLocaleDateString('en-US', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' })).replaceAll(',', '' )
+  const coverImage = extractImageFromMarkdown(article.body)
 
   function toArticle() {
-    router.push(`/article?id=${issue.id}`)
+    router.push(`/article?id=${article.id}`)
   }
 
   function extractImageFromMarkdown(markdownText: string) {
@@ -28,7 +28,7 @@ export default function ListItem({ issue }: { issue: any}) {
   return (
     <li className='mb-8 flex justify-between items-center'>
       <div className='flex-1 mr-32 max-lg:mr-4'>
-        <h1 className='font-bold mb-3 text-3xl max-lg:text-lg max-lg:mb-1' onClick={toArticle}>{issue.title}</h1>
+        <h1 className='font-bold mb-3 text-3xl max-lg:text-lg max-lg:mb-1' onClick={toArticle}>{article.title}</h1>
         <span className='text-gray-500 max-lg:text-sm'>{createTime}</span>
       </div>
 

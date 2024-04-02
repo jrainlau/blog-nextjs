@@ -32,7 +32,7 @@ export default async function Home() {
 
       <ul>
         {articles.map((item: any) => {
-          return <ListItem key={item.id} issue={item} />
+          return <ListItem key={item.id} article={item} />
         })}
       </ul>
     </main>

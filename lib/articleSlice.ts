@@ -8,7 +8,7 @@ export interface ArticleState {
 export type Article = {
   id: number
   title: string
-  create_at: string
+  created_at: string
   body: string
   html_url: string
   state: string
