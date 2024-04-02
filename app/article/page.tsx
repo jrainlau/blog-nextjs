@@ -16,14 +16,20 @@ const marked = new Marked(
       const language = hljs.getLanguage(lang) ? lang : 'plaintext'
       return hljs.highlight(code, { language }).value
     }
-  })
+  }),
 )
+
+const renderer = new marked.Renderer()
+renderer.link = (href: string, title: string, text: string) => {
+  return `<a href="${href}" target="_blank" title="" rel="noopener noreferrer">${text}</a>`
+}
 
 export default function Article({ searchParams }: { searchParams: { id: string } }) {
   const articleId = Number(searchParams.id)
   const articles: Article[] = useSelector((state: any) => state.article.articles)
   const [articleDetail] = articles.filter((article: Article) => article.id === articleId)
   const articleContent = marked.parse(articleDetail?.body || '') as string
+  const originLink = marked.parse(`[原文链接: ${articleDetail?.html_url || ''}](${articleDetail?.html_url || ''})`, { renderer }) as string
 
   const router = useRouter()
 
@@ -37,6 +43,7 @@ export default function Article({ searchParams }: { searchParams: { id: string }
     articleDetail ?
     <div className='max-w-[960px] w-full mx-auto p-16 markdown no-scrollbar overflow-y-scroll'>
       <h1 className='font-bold mb-6'>{articleDetail.title}</h1>
+      <div className='text-blue-700 underline'>{ReactHtmlParser(originLink)}</div>
       {ReactHtmlParser(articleContent)}
     </div>
     : null

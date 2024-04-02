@@ -26,9 +26,9 @@ export default function ListItem({ issue }: { issue: any}) {
   }
 
   return (
-    <li className='mb-8 flex justify-between items-center' onClick={toArticle}>
+    <li className='mb-8 flex justify-between items-center'>
       <div className='mr-32 flex-1'>
-        <h1 className='text-3xl font-bold mb-3'>{issue.title}</h1>
+        <h1 className='text-3xl font-bold mb-3' onClick={toArticle}>{issue.title}</h1>
         <span className='text-gray-500'>{createTime}</span>
       </div>
 

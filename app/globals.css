@@ -11,6 +11,10 @@ body {
   background-image: radial-gradient(circle at 0% 100%, rgb(233, 32, 29), transparent 40%);
 }
 
+* {
+  cursor: default;
+}
+
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -57,5 +61,11 @@ body {
   }
   .markdown p {
     margin: 1rem 0;
+  }
+}
+
+@layer components {
+  .icon {
+    @apply inline-block w-6 h-6 mr-2;
   }
 }

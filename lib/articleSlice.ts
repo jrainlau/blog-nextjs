@@ -10,7 +10,7 @@ export type Article = {
   title: string
   create_at: string
   body: string
-  url: string
+  html_url: string
   state: string
 }
 
@@ -23,7 +23,6 @@ export const articleSlice = createSlice({
   initialState,
   reducers: {
     initArticles: (state, action: PayloadAction<Article[]>) => {
-      console.log('yyyyyy', action.payload)
       state.articles = action.payload
     },
   },
