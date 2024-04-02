@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 
 test('test', async ({ page }) => {
   // 测试页面能否正确打开，并展示正确的标题
-  await page.goto('http://127.0.0.1:3000/')
+  await page.goto('/')
   await expect(page.getByRole('heading', { name: '精神时光屋' })).toBeVisible()
 
   // 测试页面点击外部链接能否正确跳转
