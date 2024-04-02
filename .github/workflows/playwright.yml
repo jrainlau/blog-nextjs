@@ -32,13 +32,3 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
-  block-push:
-    name: Block Push on Failure
-    runs-on: ubuntu-latest
-    needs: build-and-start-server-and-run-e2e-tests
-    if: ${{ failure() }}
-    steps:
-      - name: Block Push
-        run: |
-          echo "Tests failed. Pushing code is not allowed."
-          exit 1
